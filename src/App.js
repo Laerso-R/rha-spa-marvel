@@ -4,6 +4,7 @@ import './App.css';
 function App() {
   const initialURL ="https://gateway.marvel.com:443/v1/public/characters?ts=146097&apikey=c3be1e0fe9ab77d727ab9e0496108c6f&hash=cda3c0e1591878e1e1b29c52fecc8269"
   const [char, setChar] = useState([])
+  
 
   const fetchCharacters = (url) => {
     fetch(url)
@@ -22,12 +23,12 @@ function App() {
 
   return (
     <div className="App">
-      <div>
+      <div className="card">
         <ul>
           {char.map((list, index) => 
-            <li key={index}>
-              {list.name}
-              <img src={list.thumbnail.path} alt="" />
+            <li key={index} className="Character">
+              <img src={list.thumbnail.path + '.' + list.thumbnail.extension} className="img" alt="" />
+              <p>{list.name}</p>              
             </li> )}
         </ul>
       </div>

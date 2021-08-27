@@ -1,3 +1,45 @@
 * {
   margin: 0;
   padding: 0;}
+
+  body {
+    background: #051122;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .App {
+    margin: auto;
+    width: 90%;
+  }
+
+  .card {
+  margin-top: 30px;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .Character {
+    margin: 10px 20px;
+    padding: 5px;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    overflow: hidden;
+    justify-content: space-between;
+    background-color: #fff;
+  }
+
+  .card .img {
+    width: 100%;
+    height: 300px;
+  }
+
+  .Character p {
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 5px;
+  }
