@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import './App.css';
 
 function App() {
-  const initialURL ="https://gateway.marvel.com:443/v1/public/characters?ts=146097&apikey=c3be1e0fe9ab77d727ab9e0496108c6f&hash=cda3c0e1591878e1e1b29c52fecc8269"
+  const initialURL ="https://gateway.marvel.com:443/v1/public/characters?limit=40&offset=0&ts=146097&apikey=c3be1e0fe9ab77d727ab9e0496108c6f&hash=cda3c0e1591878e1e1b29c52fecc8269"
   const [char, setChar] = useState([])
   
 
@@ -22,17 +22,20 @@ function App() {
   console.log(char)
 
   return (
-    <div className="App">
-      <div className="card">
-        <ul>
-          {char.map((list, index) => 
-            <li key={index} className="Character">
-              <img src={list.thumbnail.path + '.' + list.thumbnail.extension} className="img" alt="" />
-              <p>{list.name}</p>              
-            </li> )}
-        </ul>
+    <div >
+      <div className="bg"></div>
+      <div className="App">
+        <div className="card">
+          <ul>
+            {char.map((list, index) => 
+              <li key={index} className="Character">
+                <img src={list.thumbnail.path + '.' + list.thumbnail.extension} className="img" alt="" />
+                <p>{list.name}</p>              
+              </li> )}
+          </ul>
+        </div>
+        
       </div>
-      
     </div>
   );
 }
