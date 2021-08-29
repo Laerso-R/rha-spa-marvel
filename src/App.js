@@ -2,9 +2,10 @@ import React, {useEffect, useState} from 'react'
 import './App.css';
 
 function App() {
-  const initialURL ="https://gateway.marvel.com:443/v1/public/characters?limit=40&offset=0&ts=146097&apikey=c3be1e0fe9ab77d727ab9e0496108c6f&hash=cda3c0e1591878e1e1b29c52fecc8269"
   const [char, setChar] = useState([])
+  const [offset, setOffset] = useState(0)
   
+  const initialURL = `https://gateway.marvel.com:443/v1/public/characters?limit=100&offset=${offset}&ts=146097&apikey=c3be1e0fe9ab77d727ab9e0496108c6f&hash=cda3c0e1591878e1e1b29c52fecc8269`
 
   const fetchCharacters = (url) => {
     fetch(url)
@@ -15,15 +16,27 @@ function App() {
       .catch((error) => console.log(error))
   }
 
-  useEffect(() => {
+   useEffect(() => {
     fetchCharacters(initialURL)
-  }, [])
+  }, [initialURL, offset])
+  
+  function prevPage () {
+    setOffset(offset-40)
+  }
+  function nextPage () {
+    setOffset(offset+40)
+  }
 
-  console.log(char)
+  console.log(offset)
 
   return (
-    <div >
-      <div className="bg"></div>
+    <div className="bar">
+      <header className="header">
+        <img src="https://theme.zdassets.com/theme_assets/2376335/f68b4cede823c3050cf95809224868d201a3d53a.jpg" alt="" />
+        { offset > 0 ? <button className="button" onClick={prevPage}>Previous Page</button> : null} 
+        <button className="button" onClick={nextPage}>Next Page</button> 
+      </header>
+      
       <div className="App">
         <div className="card">
           <ul>
@@ -34,7 +47,6 @@ function App() {
               </li> )}
           </ul>
         </div>
-        
       </div>
     </div>
   );
