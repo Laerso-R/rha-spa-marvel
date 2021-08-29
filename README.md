@@ -15,5 +15,8 @@ para iniciar a aplicação em modo de desenvolvimento.
 
 A página será aberta automáticamente no [http://localhost:3000](http://localhost:3000) para vizualização no seu navegador.
 
+### -
 Os personagens com imagem "not found" não têm suas fotos disponibilizadas pela Marvel₢, 
 porém também fazem parte da lista de personagens dos quadrinhos Marvel₢.
+### -
+A aplicação conta com 40 personagens por página dos quadrinhos Marvel₢ e também botões de paginação para você navegar entre os mais de 1500 personagens!
